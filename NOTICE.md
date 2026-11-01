@@ -15,3 +15,7 @@ The 0.4 control center uses original Canvas icons and native Android views. Appl
 The 0.6 fjord and forest landscapes were generated for Casa with the built-in image generator. All three bundled landscapes are original project assets under MIT. Their generation prompts are recorded in docs/AMBIENT-ART-PROMPTS.md.
 
 Online catalogs contain links and credits for third-party media. Their licenses are stated per item; they do not acquire the MIT license of the application code. NASA/USGS resources and the CC0 WordPress photo are not bundled in the APK. The Big Buck Bunny test clip is credited to Blender Foundation under CC BY 3.0, served by Test Videos. See docs/AMBIENTE-ONLINE.es.md and the source links in the catalog.
+
+## Fondo de Juegos · 1 de noviembre de 2026
+
+assets/gaming-hub-v1.png es un recurso original generado con OpenAI image_gen para Velira TV, sin interfaz incrustada ni marca del mando. Se distribuye con los recursos originales bajo MIT. No es el archivo original de la referencia. Procedencia, dimensiones y SHA256 en assets/gaming-hub-v1.json.

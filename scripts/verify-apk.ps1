@@ -17,6 +17,7 @@ $zip=[IO.Compression.ZipFile]::OpenRead((Resolve-Path -LiteralPath $ApkPath).Pat
 try {
     if(@($zip.Entries | Where-Object { $_.FullName.Contains('\') }).Count){throw 'APK contains Windows ZIP paths.'}
     if($badging -match "versionCode='11'") {
+        if($null -eq $zip.GetEntry("assets/gaming-hub-v1.png")){throw "Missing dedicated Gaming Hub wallpaper."}
         foreach($preset in @('classic','modern','immersive')) {
             if($null -eq $zip.GetEntry($(if($preset -eq "classic"){"assets/landscape.png"}else{"assets/ambient-fjord.png"}))){throw "Missing home wallpaper: $preset"}
         }

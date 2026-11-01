@@ -32,7 +32,7 @@ public final class OnlineAmbientActivity extends GameUi {
         toggle("random","Orden aleatorio",false);row("favorites","Elegir imágenes favoritas",this::favorites);
         note("Caché: "+String.format(Locale.ROOT,"%.1f",cacheBytes/1048576f)+" / 64 MiB. Se reutilizan las imágenes que no cambiaron. Las descargas son manuales.");
         row("clear","Borrar caché de imágenes online",()->run("Borrando caché…",s->{s.clear();return "Caché borrada; se conservan el catálogo y los favoritos.";}));
-        }if(tab==1){section(box,"Ajustes de imagen del ambiente");
+        }if(tab==1){section(box,"Ajustes de imagen del ambiente");boolean hideClock=Configuration.prefs(this).getBoolean("ambientHideClock",false);row("clock","Reloj y fecha · "+(hideClock?"ocultos":"visibles"),()->{Configuration.prefs(this).edit().putBoolean("ambientHideClock",!hideClock).apply();show();});
         imageChoice("Tiempo por imagen","ambientIntervalSec",new int[]{30,60,120,300,600}," s");
         row("effect","Transición · "+DisplayOptions.effectLabel(Configuration.prefs(this).getString("ambientEffect","fade")),()->chooseEffect());
         imageChoice("Duración de transición","ambientTransitionMs",new int[]{500,1000,2000}," ms");

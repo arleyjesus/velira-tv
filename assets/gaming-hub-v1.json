@@ -1,0 +1,14 @@
+{
+  "resource": "gaming-hub-v1.png",
+  "date": "2026-11-01",
+  "origin": "Generado con OpenAI image_gen para Velira TV; fondo nuevo, no original de la referencia",
+  "license": "MIT",
+  "sha256": "52ca0dc2d82482d19f71a1b4e7a0d29efe4a94cbf5bd4a8bf5295a2ed26dc585",
+  "bytes": 2023388,
+  "dimensions": [
+    1672,
+    941
+  ],
+  "decode": "RGB565 fuera de UI; sin caché estática adicional",
+  "description": "Mando genérico sin marca, valle al atardecer; sin interfaz incrustada"
+}
