@@ -44,7 +44,7 @@ El p99 GPU devolvió un valor extremo de histograma de 4950 ms en ambas muestras
 
 ### Ajustes
 
-![Centro de control](settings.png)
+![Apariencia y ajustes con el contraste final](settings.png)
 
 ### Biblioteca
 
