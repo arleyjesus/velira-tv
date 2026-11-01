@@ -13,6 +13,8 @@ Cada etapa conserva sus documentos y capturas; las publicaciones terminadas cons
 
 | Auditoría del 1 de noviembre | Corrección de fondo, tokens, reloj opcional y pendientes | [Estado y capturas](0.11.0/2026-11-01-auditoria/README.md) |
 
+| Consolidación del 1 de noviembre | Ajustes, biblioteca, galería, diálogos, contraste y regresiones | [Resultados y limitaciones externas](0.11.0/2026-11-01-consolidacion/README.md) |
+
 ## Versiones publicadas
 
 [Archivo visual por etiqueta](../HISTORIAL-VISUAL.es.md) · [Índice de publicaciones](releases.json). Incluye Ambiente online, imagen TCL, galería y los diseños anteriores cuando disponen de capturas propias. No se inventan capturas para los apartados sin evidencia.

@@ -3,16 +3,16 @@
     <item name="android:fontFamily">sans</item>
     <item name="android:windowActionModeOverlay">true</item>
     <item name="android:windowFullscreen">true</item>
-    <item name="android:colorAccent">#8FDFFF</item>
-    <item name="android:windowBackground">#000000</item>
+    <item name="android:colorAccent">@color/velira_accent</item>
+    <item name="android:windowBackground">@color/velira_carbon</item>
     <item name="android:windowLightStatusBar">false</item>
     <item name="android:alertDialogTheme">@style/AuraDialog</item>
   </style>
   <style name="AuraDialog" parent="android:style/Theme.Material.Dialog.Alert">
     <item name="android:windowBackground">@drawable/aura_dialog</item>
-    <item name="android:colorAccent">#8FDFFF</item>
-    <item name="android:textColorPrimary">#F4F8FF</item>
-    <item name="android:textColorSecondary">#B3C1D2</item>
-    <item name="android:colorBackgroundFloating">#080D14</item>
+    <item name="android:colorAccent">@color/velira_accent</item>
+    <item name="android:textColorPrimary">@color/velira_ink</item>
+    <item name="android:textColorSecondary">@color/velira_muted</item>
+    <item name="android:colorBackgroundFloating">@color/velira_carbon</item>
   </style>
 </resources>

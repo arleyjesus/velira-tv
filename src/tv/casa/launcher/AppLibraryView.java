@@ -11,9 +11,12 @@ final class AppLibraryView extends LinearLayout {
     private final MainActivity owner;
     private final GridView grid;
     private final TextView count;
+    private final TextView retry;
     private final ArrayList<String> packages=new ArrayList<>();
     private final LibraryAdapter adapter=new LibraryAdapter();
     private int generation;
+    private final Map<String,Long> stableIds=new HashMap<>();
+    private long nextId=1;
 
     AppLibraryView(MainActivity a){
         super(a);owner=a;setOrientation(VERTICAL);setPadding(a.px(24),a.px(15),a.px(24),a.px(12));
@@ -22,6 +25,8 @@ final class AppLibraryView extends LinearLayout {
         TextView title=a.text("Todas las aplicaciones",24,MainActivity.INK);header.addView(title,new LayoutParams(0,a.px(40),1));
         TextView close=a.button("×",a::closeLibrary);close.setContentDescription("Volver a Inicio");header.addView(close,new LayoutParams(a.px(40),a.px(36)));addView(header,new LayoutParams(-1,a.px(42)));
         count=a.text("Arriba para volver a Inicio",11,MainActivity.MUTED);addView(count,new LayoutParams(-1,a.px(25)));
+        count.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
+        retry=a.button("Volver a cargar",this::reload);retry.setVisibility(GONE);addView(retry,new LayoutParams(-1,a.px(VisualUi.ROW)));
         grid=new GridView(a);grid.setNumColumns(6);grid.setHorizontalSpacing(a.px(12));grid.setVerticalSpacing(a.px(10));grid.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);grid.setClipToPadding(false);grid.setPadding(a.px(3),a.px(5),a.px(3),a.px(5));
         GradientDrawable outline=new GradientDrawable();outline.setColor(Color.TRANSPARENT);outline.setCornerRadius(a.px(15));outline.setStroke(a.px(2),AuraTheme.ACCENT);grid.setSelector(outline);grid.setDrawSelectorOnTop(true);grid.setAdapter(adapter);
         grid.setOnItemClickListener((parent,view,position,id)->{String pkg=packages.get(position);a.closeLibrary();a.launch(pkg);});
@@ -33,24 +38,26 @@ final class AppLibraryView extends LinearLayout {
     void open(){
         setVisibility(VISIBLE);cancelAnimation();setAlpha(1);setTranslationY(0);
         if(owner.appCache!=null)display(owner.appCache);else reload();
-        grid.requestFocus();if(grid.getSelectedItemPosition()<0&&!packages.isEmpty())grid.setSelection(0);
+        if(!packages.isEmpty()){grid.requestFocus();if(grid.getSelectedItemPosition()<0)grid.setSelection(0);}else getChildAt(0).requestFocus();
     }
     void hide(){generation++;cancelAnimation();setVisibility(INVISIBLE);grid.clearFocus();}
     void cancelAnimation(){animate().cancel();}
     void invalidatePackages(){generation++;if(getVisibility()==VISIBLE)reload();}
     private void reload(){
         final int request=++generation,packageRequest=owner.packageGeneration;count.setText("Cargando aplicaciones…");
+        retry.setVisibility(GONE);
         owner.loader.execute(()->{
-            ArrayList<String> found=owner.apps();
+            ArrayList<String> found;try{found=owner.apps();}catch(Exception error){owner.handler.post(()->{if(!owner.alive||request!=generation)return;VisualUi.message(count,"No se pudieron cargar las aplicaciones. Puedes volver a intentarlo.",true);retry.setVisibility(VISIBLE);if(packages.isEmpty())retry.requestFocus();});return;}
             owner.handler.post(()->{if(!owner.alive||request!=generation||packageRequest!=owner.packageGeneration)return;owner.appCache=found;display(found);});
         });
     }
-    private void display(List<String> found){if(!packages.equals(found)){packages.clear();packages.addAll(found);adapter.notifyDataSetChanged();}String summary=packages.size()+" aplicaciones   ·   Arriba para volver   ·   Mantén OK para editar favoritas";if(!summary.contentEquals(count.getText()))count.setText(summary);if(getVisibility()==VISIBLE)grid.requestFocus();}
+    private void display(List<String> found){int previous=grid.getSelectedItemPosition();String selected=previous>=0&&previous<packages.size()?packages.get(previous):null;if(!packages.equals(found)){packages.clear();packages.addAll(found);for(String pkg:found)if(!stableIds.containsKey(pkg))stableIds.put(pkg,nextId++);adapter.notifyDataSetChanged();int index=selected==null?-1:packages.indexOf(selected);if(!packages.isEmpty())grid.setSelection(index>=0?index:Math.max(0,Math.min(previous,packages.size()-1)));}retry.setVisibility(GONE);String summary=packages.isEmpty()?"No se encontraron aplicaciones. Arriba o Atrás para volver.":packages.size()+" aplicaciones   ·   Arriba para volver   ·   Mantén OK para editar favoritas";VisualUi.message(count,summary,false);if(getVisibility()==VISIBLE){if(packages.isEmpty())getChildAt(0).requestFocus();else grid.requestFocus();}}
 
     private final class LibraryAdapter extends BaseAdapter {
         public int getCount(){return packages.size();}
         public Object getItem(int position){return packages.get(position);}
-        public long getItemId(int position){return position;}
+        public boolean hasStableIds(){return true;}
+        public long getItemId(int position){Long id=stableIds.get(packages.get(position));return id==null?0:id;}
         public View getView(int position,View recycled,android.view.ViewGroup parent){
             LinearLayout cell;
             if(recycled instanceof LinearLayout)cell=(LinearLayout)recycled;

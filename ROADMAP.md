@@ -1,6 +1,8 @@
 # Roadmap
 
-These are planned priorities, not guarantees or a release schedule.
+These are future product directions, not an open checklist for the current visual refinement. They are not guarantees or a release schedule.
+
+The current visual consolidation and its verification are tracked in [the visual system](docs/SISTEMA-VISUAL.es.md) and [the versioned closure report](docs/history/0.11.0/2026-11-01-consolidacion/README.md). HLS/DASH, YouTube, full localization, Gradle migration and other models are future features rather than silently included work.
 
 ## Native stability — still under investigation
 
@@ -69,4 +71,4 @@ See [design and ambient guide](docs/DISENOS-AMBIENTE.es.md).
 - Shipped in 0.10: schema-2 content catalog, manual HTTPS refresh/download, 64 MiB image cache, collections/favorites, local photo filters and muted MP4 range streaming with session limits.
 - Pending: HLS/DASH adaptive player, long-session and network-loss testing, more curated categories and additional TV models.
 - YouTube remains a separate official-player evaluation; no extraction or ad suppression.
-- Naming and logo studies stay local until the name is selected. Releases now have a visual archive alongside their notes.
+- The selected name is Velira TV. Each development stage has a versioned visual archive alongside release notes.

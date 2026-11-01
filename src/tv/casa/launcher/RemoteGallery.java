@@ -16,7 +16,7 @@ final class RemoteGallery {
     private volatile HttpURLConnection connection;
     RemoteGallery(Context context){root=new File(context.getFilesDir(),"ambient-gallery");}
     File folder(String name){return new File(root,name);}
-    void cancel(){HttpURLConnection active=connection;if(active!=null)active.disconnect();}
+    void cancel(){HttpURLConnection active=connection;AmbientHttp.disconnect(active);}
     private void fetch(String url,OutputStream output,int limit)throws Exception{
         GalleryPolicy.checkInterrupted();HttpURLConnection active=(HttpURLConnection)new URL(url).openConnection();connection=active;
         try{active.setConnectTimeout(10000);active.setReadTimeout(10000);active.setInstanceFollowRedirects(false);active.setUseCaches(false);active.setRequestProperty("Accept-Encoding","identity");active.setRequestProperty("User-Agent","CasaAuraTV/0.7");

@@ -1,6 +1,6 @@
 # Modos visuales de Velira TV
 
-Especificación y estado revisados el 1 de noviembre de 2026. Las reglas comunes están en [Sistema visual](SISTEMA-VISUAL.es.md). Los diseños son vistas reales, no capturas incrustadas. Código en desarrollo 0.11, sin release estable.
+Especificación y estado revisados el 1 de noviembre de 2026. La consolidación posterior aplica componentes comunes a Ajustes, biblioteca, galería y diálogos; [estado y evidencia](history/0.11.0/2026-11-01-consolidacion/README.md). Las reglas comunes están en [Sistema visual](SISTEMA-VISUAL.es.md). Los diseños son vistas reales, no capturas incrustadas. Código en desarrollo 0.11, sin release estable.
 
 | Apartado | Implementado | Evidencia y pendientes |
 | --- | --- | --- |
@@ -14,7 +14,7 @@ Especificación y estado revisados el 1 de noviembre de 2026. Las reglas comunes
 
 No estaban completos en todos sus criterios de aceptación. La composición básica y las capturas existen; no equivalen a validación completa de todas las integraciones. El fondo del mando no estaba implementado: el código y la captura archivada mostraban el desierto. La documentación de esa etapa lo indicaba, pero el resumen fue demasiado amplio.
 
-Tampoco se habían completado: reloj opcional de Ambiente, unificación de todos los tokens, pruebas de todas las entradas/dispositivos, contraste en múltiples fondos, 4K ni benchmark equivalente. Se corrigen reloj opcional, información y tokens principales; los restantes se mantienen pendientes.
+Tampoco se habían completado: reloj opcional de Ambiente, unificación de todos los tokens, pruebas de todas las entradas/dispositivos, contraste en múltiples fondos, 4K ni benchmark equivalente. Se corrigen reloj opcional, información y tokens principales; los restantes se distinguen en la consolidación posterior entre implementación y validación externa.
 
 ## Comportamiento que se conserva
 

@@ -2,6 +2,8 @@
 
 ## 0.11.0 · en desarrollo, sin release
 
+- Consolidación: componentes y diálogos comunes, foco estable de biblioteca, galería recuperable al cancelar, estados vacíos y validación estricta de copias. Contrato de contraste y geometría integrado en CI. [Resultados y límites](docs/history/0.11.0/2026-11-01-consolidacion/README.md).
+
 - 1 de noviembre: fondo dedicado de Juegos, reloj opcional de Ambiente, información completa y consolidación parcial del tema. [Auditoría y pendientes](docs/history/0.11.0/2026-11-01-auditoria/README.md).
 
 - Ambiente con hora/fecha diferenciadas y controles temporales; Juegos con tarjetas, iconos y fondo reutilizado. [Archivo de etapa y comprobaciones](docs/history/0.11.0/2026-10-28-ambiente-juegos/README.md).

@@ -1,0 +1,4 @@
+<resources>
+  <color name="velira_carbon">#151921</color><color name="velira_graphite">#252C36</color><color name="velira_slate">#515D69</color>
+  <color name="velira_ink">#F5F7FA</color><color name="velira_muted">#B8C1CC</color><color name="velira_accent">#96C9DD</color><color name="velira_disabled">#7C8793</color>
+</resources>

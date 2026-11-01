@@ -39,7 +39,7 @@ final class Configuration {
         ByteArrayOutputStream bytes=new ByteArrayOutputStream();
         try(InputStream input=new FileInputStream(file)){byte[] block=new byte[1024];int length;while((length=input.read(block))!=-1){bytes.write(block,0,length);if(bytes.size()>16384)throw new IOException("Copia demasiado grande");}}
         JSONObject data=new JSONObject(new String(bytes.toByteArray(),StandardCharsets.UTF_8));
-        if(data.getInt("schema")!=1)throw new IOException("Formato no compatible");
+        if(!(data.get("schema") instanceof Integer)||data.getInt("schema")!=1)throw new IOException("Formato no compatible");
         JSONArray favorites=data.getJSONArray("favorites");if(favorites.length()>6)throw new IOException("Demasiadas favoritas");
         HashSet<String> seen=new HashSet<>();for(int i=0;i<favorites.length();i++){String pkg=favorites.getString(i);if(!pkg.matches("[A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z0-9_]+)+")||!seen.add(pkg))throw new IOException("Favoritas no válidas");}
         for(String option:new String[]{"showTitle","showClock","animateFocus"})if(!(data.get(option) instanceof Boolean))throw new IOException("Opción no válida");

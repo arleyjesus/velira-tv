@@ -19,3 +19,7 @@ Los resultados y registros quedan dentro de `build/`, excluido de Git. Los regis
 Estas son regresiones breves. No certifican sesiones de 60 minutos, HDR, todas las redes, formatos, firmwares ni la pulsación física del mando.
 
 El modo -Mode deadline ejecuta únicamente la prueba de 15 segundos: bloquea la cola multimedia mediante una barrera controlada, comprueba el respaldo y la desbloquea en finally. No simula por sí solo todas las formas de bloqueo de I/O. Una tanda rápida en C645/V652 coincidió con un SIGSEGV de system_server; no se considera aprobada y no se debe usar este auxiliar como certificación de estabilidad. La prueba incluye una pausa entre ventanas, pero no se afirma que eso resuelva el fallo del firmware.
+
+## Comprobaciones puntuales de interfaz
+
+`-Mode visual` ejecuta la regresión de copias, foco, tres presets, biblioteca, galería y colecciones, sin vídeo ni descargas. Restaura las preferencias modificadas en finally. `-Mode benchmark` hace dos calentamientos y una secuencia de dibujo; `-Mode closure` combina ambos. No usar full como rutina: una secuencia multimedia anterior disparó una caída nativa de system_server. Estos modos no certifican su resolución. Capturas temporales en files/visual-qa de la aplicación.

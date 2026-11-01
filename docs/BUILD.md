@@ -13,10 +13,10 @@ The current lightweight build uses aapt2, javac, d8, jar and zipalign, without e
 
 ```powershell
 ./scripts/build.ps1
-./scripts/verify-apk.ps1 -ApkPath ./build/Casa-TV-Launcher-v0.5.0-unsigned.apk
+./scripts/verify-apk.ps1 -ApkPath ./build/Casa-TV-Launcher-v0.11.0-unsigned.apk
 ```
 
-You can pass `-AndroidSdk`, `-JavaHome`, `-AndroidPlatform` and `-BuildToolsVersion` explicitly. The default platform is the newest installed numeric SDK platform; the manifest still controls minSdk/targetSdk. No device is contacted by the build script.
+You can pass `-AndroidSdk`, `-JavaHome`, `-AndroidPlatform` and `-BuildToolsVersion` explicitly. The default platform is pinned to android-37.0; the manifest still controls minSdk/targetSdk. No device is contacted by the build script.
 
 An unsigned APK is a build-validation artifact, not an installable release.
 
@@ -35,7 +35,7 @@ A build signed with another key cannot update an installed official build. For a
 ## Official preview identity
 
 - Package: `tv.casa.launcher`
-- Version: `0.2.0`, versionCode `2`
+- Current development candidate: `0.11.0`, versionCode `11`; latest stable download: `0.10.0`
 - Signing certificate SHA-256: `f9c91bf6e4098273d0d86bb58f28cfa503c0a145b7704dae6aed8804700d2032`
 
 The repository does not contain the private key, its password, user backups or device logs.

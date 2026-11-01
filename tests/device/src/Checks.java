@@ -25,6 +25,10 @@ public final class Checks extends Instrumentation {
     }
 
     public void onStart(){try{android.util.Log.i("VeliraChecks","START regression build011");
+        if(mode.equals("surfaces")){VisualSuite.surfaces(this);Bundle result=new Bundle();result.putString("stream",report.toString());finish(Activity.RESULT_OK,result);return;}
+        if(mode.equals("closure")){VisualSuite.run(this);VisualSuite.benchmark(this);Bundle result=new Bundle();result.putString("stream",report.toString());finish(Activity.RESULT_OK,result);return;}
+        if(mode.equals("benchmark")){VisualSuite.benchmark(this);Bundle result=new Bundle();result.putString("stream",report.toString());finish(Activity.RESULT_OK,result);return;}
+        if(mode.equals("visual")){VisualSuite.run(this);Bundle result=new Bundle();result.putString("stream",report.toString());finish(Activity.RESULT_OK,result);return;}
         if(mode.equals("deadline")){deadline();Bundle result=new Bundle();result.putString("stream",report.toString());finish(Activity.RESULT_OK,result);return;}
         Activity panel=open("OnlineAmbientActivity",false);
         waitFor("initial snapshot",()->Boolean.TRUE.equals(onUi(panel,"snapshotReady")),8000);

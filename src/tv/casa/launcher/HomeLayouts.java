@@ -12,7 +12,7 @@ import java.util.*;
 final class HomeLayouts {
     static void create(MainActivity a){
         android.util.DisplayMetrics dm=a.getResources().getDisplayMetrics();
-        a.scale=Math.min(dm.widthPixels/960f,dm.heightPixels/540f);
+        a.scale=VisualUi.scale(a);
         a.insetX=(dm.widthPixels-a.px(960))/2;a.insetY=(dm.heightPixels-a.px(540))/2;
         a.root=new FrameLayout(a);a.root.setBackgroundColor(0xFF020D20);a.setContentView(a.root);
         a.root.addView(MainActivity.background(a),new FrameLayout.LayoutParams(-1,-1));
@@ -58,7 +58,7 @@ final class HomeLayouts {
         View input=utility(a,"Entradas","input",a::showInputs,0);a.put(input,760,477,164,43);
     }
     static void favoritesModern(MainActivity a,ArrayList<String> packages,FrameLayout tray){
-        if(packages.isEmpty()){favorites(a,packages,tray,6,888,133);return;}
+        if(packages.isEmpty()){TextView empty=a.button("+  Elegir aplicaciones favoritas",()->a.showApps(true));empty.setTag("choose-favorites");inside(a,tray,empty,16,38,856,80);a.favoritesViews.add(empty);return;}
         for(int i=0;i<Math.min(6,packages.size());i++)inside(a,tray,app(a,packages.get(i)),16+i*144,38,132,80);
     }
     static void immersive(MainActivity a,ArrayList<String> packages){

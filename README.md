@@ -82,3 +82,5 @@ Código y recursos originales bajo [MIT](LICENSE): puedes usarlos, modificarlos 
 Proyecto independiente, sin afiliación con TCL, Google, Projectivy ni las plataformas de streaming.
 
 [Archivo por versión y apartado](docs/history/README.md).
+
+[Consolidación visual: trabajo terminado, pruebas y bloqueos externos](docs/history/0.11.0/2026-11-01-consolidacion/README.md).

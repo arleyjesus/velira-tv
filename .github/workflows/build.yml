@@ -21,6 +21,9 @@ jobs:
       - name: Test Home redirect policy
         shell: pwsh
         run: ./scripts/test-home.ps1
+      - name: Test visual contrast and layout contract
+        shell: pwsh
+        run: ./scripts/test-visual.ps1
       - name: Test display option bounds
         shell: pwsh
         run: ./scripts/test-display-options.ps1
