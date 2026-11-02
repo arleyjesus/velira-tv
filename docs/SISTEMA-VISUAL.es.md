@@ -42,3 +42,7 @@ El contrato JVM verifica contraste mínimo 4,5:1 del texto principal, secundario
 Las regresiones en C645 comprueban foco de los tres presets, biblioteca/Ajustes, parser real de copias, reentrada de galería y colecciones locales. No utilizan vídeo ni descargas ni cambian ajustes de imagen de TCL. Conservan/restauran preferencias de prueba. [Evidencia de la consolidación](history/0.11.0/2026-11-01-consolidacion/README.md).
 
 La incidencia histórica de system_server no está resuelta por estas pruebas. Tampoco sustituyen un mando físico, señal HDMI externa, otros modelos ni una prueba prolongada de estabilidad. [Modos](MODOS-VISUALES.es.md) · [Archivo por versión](history/README.md).
+
+## Extensión 0.12
+
+PresetPicker utiliza tres esquemas Canvas estáticos, sin cargar fondos adicionales. La biblioteca amplía su panel para albergar búsqueda y filtros; comparte componentes de foco y tiene tamaños de 4/5/6 columnas. LibraryQuery mantiene el índice local fuera de la vista y LibraryOptions comparte el contrato de preferencia/copia. [Evidencia de 0.12](history/0.12.0/2026-11-02-biblioteca/README.md).

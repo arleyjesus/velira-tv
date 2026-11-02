@@ -25,6 +25,7 @@ public final class Checks extends Instrumentation {
     }
 
     public void onStart(){try{android.util.Log.i("VeliraChecks","START regression build011");
+        if(mode.equals("features")){VisualSuite.features(this);Bundle result=new Bundle();result.putString("stream",report.toString());finish(Activity.RESULT_OK,result);return;}
         if(mode.equals("surfaces")){VisualSuite.surfaces(this);Bundle result=new Bundle();result.putString("stream",report.toString());finish(Activity.RESULT_OK,result);return;}
         if(mode.equals("closure")){VisualSuite.run(this);VisualSuite.benchmark(this);Bundle result=new Bundle();result.putString("stream",report.toString());finish(Activity.RESULT_OK,result);return;}
         if(mode.equals("benchmark")){VisualSuite.benchmark(this);Bundle result=new Bundle();result.putString("stream",report.toString());finish(Activity.RESULT_OK,result);return;}

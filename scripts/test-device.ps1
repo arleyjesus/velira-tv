@@ -5,7 +5,7 @@ param(
     [Parameter(Mandatory=$true)][string]$TargetApkPath,
     [string]$AndroidSdk=$env:ANDROID_HOME,
     [string]$JavaHome=$env:JAVA_HOME,
-    [ValidateSet("full","deadline","visual","benchmark","closure","surfaces")][string]$Mode="full"
+    [ValidateSet("full","deadline","visual","benchmark","closure","surfaces","features")][string]$Mode="visual"
 )
 $ErrorActionPreference='Stop'
 $root=Split-Path -Parent $PSScriptRoot
@@ -25,7 +25,7 @@ try {
     $result=(& $AdbPath -s $TvEndpoint shell am instrument -w -e mode $Mode tv.casa.launcher.check/.Checks) -join "`n"
     [IO.File]::WriteAllText((Join-Path $stage 'results.txt'),$result)
     Write-Output $result
-    $expected=if($Mode -eq 'deadline' -or $Mode -eq 'benchmark' -or $Mode -eq 'surfaces'){1}elseif($Mode -eq 'visual'){5}else{6}
+    $expected=if($Mode -eq 'deadline' -or $Mode -eq 'benchmark' -or $Mode -eq 'surfaces' -or $Mode -eq 'features'){1}elseif($Mode -eq 'visual'){5}else{6}
     if($result.Contains('FAIL:') -or ([regex]::Matches($result,'PASS:')).Count -lt $expected){throw 'Device regression did not pass all checks.'}
 } finally {
     if($null -ne $logProcess){Stop-Process -Id $logProcess.Id -ErrorAction SilentlyContinue}

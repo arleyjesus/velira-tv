@@ -2,6 +2,7 @@ package tv.casa.launcher;
 public final class DisplayOptionsTest {
     static void check(boolean value){if(!value)throw new AssertionError();}
     public static void main(String[] args){
+        check(DisplayOptions.defaultInt("libraryColumns")==6);for(int count:new int[]{4,5,6})check(DisplayOptions.valid("libraryColumns",count));check(!DisplayOptions.valid("libraryColumns",3));check(!DisplayOptions.valid("libraryColumns",4.0));
         for(String p:new String[]{"classic","modern","immersive"})check(DisplayOptions.valid("preset",p));
         for(String v:new String[]{"off","low","medium","high"})check(DisplayOptions.valid("visualEffects",v));
         check(!DisplayOptions.valid("visualEffects","ultra"));check(!DisplayOptions.valid("visualEffects",true));

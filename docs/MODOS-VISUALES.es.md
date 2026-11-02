@@ -1,6 +1,6 @@
 # Modos visuales de Velira TV
 
-Especificación y estado revisados el 1 de noviembre de 2026. La consolidación posterior aplica componentes comunes a Ajustes, biblioteca, galería y diálogos; [estado y evidencia](history/0.11.0/2026-11-01-consolidacion/README.md). Las reglas comunes están en [Sistema visual](SISTEMA-VISUAL.es.md). Los diseños son vistas reales, no capturas incrustadas. Código en desarrollo 0.11, sin release estable.
+Especificación y estado revisados el 1 de noviembre de 2026. La consolidación posterior aplica componentes comunes a Ajustes, biblioteca, galería y diálogos; [estado y evidencia](history/0.11.0/2026-11-01-consolidacion/README.md). Las reglas comunes están en [Sistema visual](SISTEMA-VISUAL.es.md). Los diseños son vistas reales, no capturas incrustadas. Código en desarrollo 0.12, sin release estable. [Selector y biblioteca de 0.12](history/0.12.0/2026-11-02-biblioteca/README.md).
 
 | Apartado | Implementado | Evidencia y pendientes |
 | --- | --- | --- |

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.12.0 · candidata, sin release estable
+
+- Selector de presets con esquemas nativos y diseño actual marcado.
+- Biblioteca con consulta local sin tildes/mayúsculas, filtro de favoritas y limpieza de filtros.
+- Tarjetas de 4, 5 o 6 columnas, con preferencia incluida en las copias.
+- Pruebas de consulta en CI y regresión puntual de las funciones nuevas en TV.
+- [Guía y capturas](docs/history/0.12.0/2026-11-02-biblioteca/README.md).
+
+
 ## 0.11.0 · en desarrollo, sin release
 
 - Consolidación: componentes y diálogos comunes, foco estable de biblioteca, galería recuperable al cancelar, estados vacíos y validación estricta de copias. Contrato de contraste y geometría integrado en CI. [Resultados y límites](docs/history/0.11.0/2026-11-01-consolidacion/README.md).

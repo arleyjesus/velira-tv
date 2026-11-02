@@ -1,0 +1,6 @@
+package tv.casa.launcher;
+import java.util.*;
+public final class LibraryQueryTest {
+ static void check(boolean value){if(!value)throw new AssertionError();}
+ public static void main(String[] args){List<LibraryQuery.Entry> apps=Arrays.asList(new LibraryQuery.Entry("tv.a","Configuración"),new LibraryQuery.Entry("tv.b","YouTube"),new LibraryQuery.Entry("tv.c","Galería"));Set<String> favorites=new HashSet<>(Arrays.asList("tv.c","tv.b"));check(LibraryQuery.filter(apps,"CONFIGURACION",favorites,false).equals(Arrays.asList("tv.a")));check(LibraryQuery.filter(apps,"  galería  ",favorites,false).equals(Arrays.asList("tv.c")));check(LibraryQuery.filter(apps,"",favorites,true).equals(Arrays.asList("tv.b","tv.c")));check(LibraryQuery.filter(apps,"tv.b",favorites,false).equals(Arrays.asList("tv.b")));check(LibraryQuery.filter(apps,"config",favorites,true).isEmpty());check(LibraryQuery.filter(apps,"missing",favorites,false).isEmpty());check(LibraryQuery.filter(Collections.emptyList(),"",favorites,false).isEmpty());Locale original=Locale.getDefault();try{Locale.setDefault(new Locale("tr"));check(LibraryQuery.fold("CONFIGURACIÓN").equals("configuracion"));}finally{Locale.setDefault(original);}check(apps.size()==3);System.out.println("Library query passed: accents, case, package names, favorite intersection, stable order, empty results and locale independence.");}
+}

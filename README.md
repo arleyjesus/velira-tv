@@ -1,6 +1,6 @@
 # Velira TV
 
-Antes Casa Aura TV. La versión pública disponible es **0.10.0**; el código en desarrollo **0.11** incorpora la marca Velira, los tres diseños adaptados y las correcciones de medios. El código está disponible en el repositorio; el APK estable continúa en 0.10.0 mientras se revisa la estabilidad. [Estado y evidencia de la candidata](docs/VELIRA-011-LOCAL.es.md).
+Antes Casa Aura TV. La versión estable pública es **0.10.0**. El código en desarrollo **0.12** añade selector visual de diseños, búsqueda local, filtro de favoritas y tamaño de tarjetas. [Novedades y capturas de la candidata](docs/history/0.12.0/2026-11-02-biblioteca/README.md). La estabilidad nativa pendiente se conserva documentada.
 
 **Un inicio tranquilo para tu televisor.** Launcher independiente para Android TV y Google TV, con favoritas, accesos HDMI y salvapantallas ambiente.
 
@@ -18,7 +18,7 @@ Desarrollado y probado específicamente en **TCL 50C645 · Android 11 · V652**.
 
 - Inicio sin anuncios propios ni cuentas.
 - Diseños Clásico, Moderno e Inmersivo; hasta seis favoritas guardadas y ordenables con el mando.
-- Biblioteca completa al bajar desde una app, con tarjetas reutilizables.
+- Biblioteca con búsqueda local, filtro de favoritas y tarjetas de 4, 5 o 6 columnas.
 - Centro de Juegos: HDMI con nombres y estado, mandos, GeForce NOW y juegos web.
 - Control de Contenido adaptable de TCL con permiso opcional, y acceso a sus ajustes originales.
 - Ambiente con paisajes integrados, colecciones online, favoritos y vídeo MP4 opcional.

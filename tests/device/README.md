@@ -10,7 +10,7 @@ Desde PowerShell, con Android SDK/JDK y las variables de firma habituales ya con
 
 El script actualiza el launcher con `install -r`, instala el auxiliar, ejecuta las pruebas y retira únicamente `tv.casa.launcher.check` al terminar. No desinstala el launcher ni borra sus datos. El paquete, los componentes y el certificado del launcher deben conservarse. No incluyas claves ni sus contraseñas en el repositorio.
 
-La prueba utiliza el vídeo que ya esté elegido en Ambiente; debe ser compatible y accesible por la red permitida. No activa el vídeo automático ni cambia la selección. Interrumpe visualmente el uso del televisor durante el ensayo. Hace una descarga real de la primera imagen del catálogo a un archivo temporal, valida tamaño/SHA y lo elimina. Crea un archivo temporal dañado para comprobar el respaldo y su crédito; no daña las imágenes del usuario.
+Solo con -Mode full, la prueba utiliza el vídeo que ya esté elegido en Ambiente; debe ser compatible y accesible por la red permitida. No activa el vídeo automático ni cambia la selección. Interrumpe visualmente el uso del televisor durante el ensayo. Hace una descarga real de la primera imagen del catálogo a un archivo temporal, valida tamaño/SHA y lo elimina. Crea un archivo temporal dañado para comprobar el respaldo y su crédito; no daña las imágenes del usuario.
 
 Comprueba cancelación/reentrada a la misma instancia del panel mediante callbacks de ciclo de vida controlados, conserva la pestaña y exige controles habilitados sin reiniciar la tarea. No sustituye una prueba de suspensión real. También prueba dos escenas simultáneas y veinte entradas/salidas de la vista previa, incluidas preparación cancelada y dos pérdidas de superficie después de recibir vídeo.
 
@@ -23,3 +23,7 @@ El modo -Mode deadline ejecuta únicamente la prueba de 15 segundos: bloquea la 
 ## Comprobaciones puntuales de interfaz
 
 `-Mode visual` ejecuta la regresión de copias, foco, tres presets, biblioteca, galería y colecciones, sin vídeo ni descargas. Restaura las preferencias modificadas en finally. `-Mode benchmark` hace dos calentamientos y una secuencia de dibujo; `-Mode closure` combina ambos. No usar full como rutina: una secuencia multimedia anterior disparó una caída nativa de system_server. Estos modos no certifican su resolución. Capturas temporales en files/visual-qa de la aplicación.
+
+## Novedades 0.12
+
+El modo predeterminado es visual, sin vídeo ni descargas. -Mode features comprueba el selector de presets, la entrada de búsqueda, filtro de favoritas, resultados vacíos y el selector real de 4/5/6 columnas. Restaura el preset y libraryColumns en finally y no cambia favoritas. Se reserva full para una petición explícita; nunca se inicia como rutina.

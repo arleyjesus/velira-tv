@@ -24,6 +24,9 @@ jobs:
       - name: Test visual contrast and layout contract
         shell: pwsh
         run: ./scripts/test-visual.ps1
+      - name: Test local library query
+        shell: pwsh
+        run: ./scripts/test-library.ps1
       - name: Test display option bounds
         shell: pwsh
         run: ./scripts/test-display-options.ps1

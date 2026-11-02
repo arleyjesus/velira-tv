@@ -17,7 +17,7 @@ The current visual consolidation and its verification are tracked in [the visual
 - Extend Casa Aura's card-based control center while retaining the existing visual identity and low rendering cost.
 - Validate the 0.4 redesign over longer sessions before promoting it from pre-release.
 - Shipped in 0.9: HDMI aliases, published input states and Casa-only last-open times. Physical-source validation and preferred-input behavior remain pending.
-- Consider a local library search and launcher-only recent apps; avoid network widgets or periodic background refresh.
+- Local library search and favorite filtering are implemented in 0.12. Launcher-only recent apps remain a separate proposal; avoid network widgets or periodic background refresh.
 
 - Extract device-specific behavior into adapters instead of assuming TCL packages and three HDMI ports.
 - Detect available inputs; support custom names and gracefully handle devices without a tuner.
@@ -72,3 +72,7 @@ See [design and ambient guide](docs/DISENOS-AMBIENTE.es.md).
 - Pending: HLS/DASH adaptive player, long-session and network-loss testing, more curated categories and additional TV models.
 - YouTube remains a separate official-player evaluation; no extraction or ad suppression.
 - The selected name is Velira TV. Each development stage has a versioned visual archive alongside release notes.
+
+## 0.12 library and appearance
+
+Implemented in the development candidate: native preset diagrams, local app search, favorite filtering and persistent 4/5/6-column density. [Growth directions](docs/ESCALABILIDAD.es.md).
